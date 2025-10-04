@@ -1,601 +1,445 @@
-# 💸 ExpenseFlow - Smart Expense Reimbursement Platform
+# Expense Reimbursement System
 
-<div align="center">
+A comprehensive, enterprise-grade Spring Boot backend application for managing expense reimbursements with JWT authentication, multi-level approval workflows, and secure file upload capabilities.
 
-![ExpenseFlow Banner](https://img.shields.io/badge/ExpenseFlow-Smart_Reimbursement-blue?style=for-the-badge&logo=cashapp)
-
-**Transforming expense management from chaos to clarity with AI-powered automation**
-
-[![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org/)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=flat&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-[🚀 Live Demo](#) • [📹 Video Demo](#) • [📖 Documentation](https://github.com/yourusername/expenseflow/wiki) • [🐛 Report Bug](#)
-
-</div>
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.0-brightgreen)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
 
-## 🎯 The Problem
+## 📋 Table of Contents
 
-**Did you know?** Companies lose an average of **$3,000 per employee annually** due to inefficient expense processes.
-
-- 📄 **75%** of expenses are still processed manually
-- ⏰ Average processing time: **20 minutes per expense**
-- 💰 **18%** error rate in manual data entry
-- 😤 Employees wait **15+ days** for reimbursements
-- 🔍 Zero visibility into approval status
-
-**Organizations are bleeding time, money, and employee satisfaction.**
-
----
-
-## 💡 Our Solution
-
-**ExpenseFlow** is an intelligent expense management platform that automates the entire reimbursement lifecycle - from receipt capture to bank transfer - in under **2 minutes**.
-
-### ✨ What Makes Us Different?
-
-| Traditional Systems | 🚀 ExpenseFlow |
-|-------------------|--------------|
-| Manual receipt entry | 📸 **AI-Powered OCR** - Snap & Submit in 10 seconds |
-| Fixed approval chains | 🔄 **Dynamic Workflows** - Rules adapt to amount, category, & complexity |
-| Single currency support | 🌍 **150+ Currencies** - Real-time conversion with audit trails |
-| 2-week processing | ⚡ **24-hour approval** - Smart routing & parallel approvals |
-| Zero transparency | 📊 **Real-Time Tracking** - Live status updates & push notifications |
-| Desktop only | 📱 **Mobile-First** - Submit expenses from anywhere |
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Architecture](#-architecture)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [Running the Application](#-running-the-application)
+- [API Documentation](#-api-documentation)
+- [Security](#-security)
+- [Testing](#-testing)
+- [Production Deployment](#-production-deployment)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
-## 🎬 Demo Video
+## ✨ Features
 
-<div align="center">
+### Core Functionality
+- **🔐 Authentication & Authorization**: Secure JWT-based authentication with role-based access control (RBAC)
+- **👥 User Management**: Complete CRUD operations for users with three distinct roles: ADMIN, MANAGER, EMPLOYEE
+- **💰 Expense Management**: Submit, track, and manage expense claims with comprehensive status tracking
+- **✅ Multi-Level Approval Workflow**: Configurable approval chains with automatic routing
+- **📎 File Upload System**: Secure receipt upload and storage with retrieval capabilities
+- **🏢 Multi-Company Support**: Manage multiple companies with isolated data and custom settings
+- **🔄 RESTful API Design**: Well-structured REST endpoints with standardized error handling
 
-[![ExpenseFlow Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-
-**Watch our 2-minute demo** 👆
-
-</div>
-
----
-
-## 🏆 Key Features
-
-### 🤖 AI-Powered OCR Receipt Scanning
-```
-📸 Snap Receipt → 🧠 AI Extraction → ✅ Auto-Fill Form
-```
-- Extracts merchant, date, amount, line items, and currency
-- **95%+ accuracy** with Tesseract.js
-- Supports 10+ languages
-- Works with photos, PDFs, and screenshots
-
-### 🔀 Intelligent Approval Workflows
-
-**6 Workflow Types - Mix & Match:**
-
-1. **Sequential Multi-Level** 
-   - `Employee → Manager → Finance → Director`
-   - Each approver gets notified only after previous approval
-
-2. **Percentage-Based Democracy**
-   - `60% of 5 approvers = Auto-approve`
-   - Perfect for distributed teams
-
-3. **Critical Approver Override**
-   - `CFO approval = Instant approval`
-   - Executive fast-track for urgent expenses
-
-4. **Hybrid Rules**
-   - `(60% approval) OR (CFO approval)`
-   - Best of both worlds
-
-5. **Amount-Based Routing**
-   - `$0-500: Manager only | $501-5K: Manager + Finance | $5K+: Full board`
-   - Smart escalation saves time
-
-6. **Manager + Conditional**
-   - Direct manager approval required, then conditional rules apply
-   - Maintains hierarchy while enabling flexibility
-
-### 🌍 Multi-Currency Excellence
-- **Real-time conversion** for 150+ currencies
-- Integrated with `exchangerate-api.com`
-- Historical rate tracking for compliance
-- Display in both original & company currency
-
-### 👥 Role-Based Power Users
-
-**Admin** 🔧
-- Company setup & user management
-- Configure approval workflows
-- Override any decision
-- System-wide analytics
-
-**Manager** 👔
-- One-click approve/reject
-- Team expense dashboard
-- Budget tracking alerts
-- Delegate approvals
-
-**Employee** 👨‍💼
-- 10-second OCR submission
-- Real-time status tracking
-- Resubmit with comments
-- Expense history & reports
+### Technical Features
+- JWT token-based stateless authentication
+- BCrypt password encryption
+- Automatic database schema management
+- CORS support for frontend integration
+- Comprehensive error handling and validation
+- Transaction management with Spring Data JPA
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Technology Stack
 
-### Frontend Arsenal
-```
-⚛️  React 18 + TypeScript    →  Type-safe, modern UI
-🎨  Material-UI / Tailwind   →  Beautiful, responsive design
-🔄  Redux Toolkit            →  Predictable state management
-📸  Tesseract.js             →  Client-side OCR processing
-🔌  Axios                    →  Smooth API communication
-```
+| Category | Technology |
+|----------|-----------|
+| **Language** | Java 17 |
+| **Framework** | Spring Boot 3.2.0 |
+| **Security** | Spring Security + JWT |
+| **ORM** | Spring Data JPA |
+| **Database** | MySQL 8.0 |
+| **Build Tool** | Maven 3.6+ |
+| **Password Encryption** | BCrypt |
 
-### Backend Powerhouse
-```
-☕  Spring Boot 3.x          →  Enterprise-grade Java framework
-🔐  Spring Security + JWT    →  Bank-level authentication
-🗄️  Spring Data JPA          →  Elegant database operations
-✅  Bean Validation          →  Bulletproof input validation
-📨  JavaMailSender           →  Email notifications
-```
+---
 
-### Database & Infrastructure
-```
-🐬  MySQL 8.0                →  Reliable relational database
-🔄  HikariCP                 →  Lightning-fast connection pooling
-🏗️  Flyway                   →  Version-controlled migrations
-```
+## 🏗 Architecture
 
-### External APIs
+### Database Schema
+
+The system uses six main entities:
+
+1. **Company**: Stores company information (name, country, currency)
+2. **User**: User accounts with roles and company associations
+3. **Expense**: Expense records with status and financial details
+4. **Approval**: Individual approval workflow entries
+5. **ApprovalRule**: Configurable approval rules per company
+6. **ExpenseReceipt**: File attachments for expense receipts
+
+### Entity Relationships
 ```
-🌍  REST Countries API       →  Country & currency data
-💱  Exchange Rate API        →  Real-time currency conversion
+Company (1) ----< (N) User
+Company (1) ----< (N) ApprovalRule
+User (1) ----< (N) Expense
+Expense (1) ----< (N) Approval
+Expense (1) ----< (N) ExpenseReceipt
+User (1) ----< (N) Approval (as approver)
 ```
 
 ---
 
-## 🏗️ System Architecture
+## 📦 Prerequisites
 
-```mermaid
-graph TB
-    A[React Frontend] -->|JWT Auth| B[Spring Boot API]
-    B -->|JPA| C[MySQL Database]
-    B -->|REST| D[Exchange Rate API]
-    B -->|REST| E[Countries API]
-    A -->|OCR| F[Tesseract.js]
-    B -->|Email| G[SMTP Server]
-    
-    style A fill:#61DAFB
-    style B fill:#6DB33F
-    style C fill:#4479A1
-    style F fill:#FFB800
-```
+Before you begin, ensure you have the following installed:
+
+- **Java Development Kit (JDK)**: Version 17 or higher
+- **MySQL Database**: Version 8.0 or higher
+- **Maven**: Version 3.6 or higher
+- **IDE** (Optional): IntelliJ IDEA, Eclipse, or VS Code with Java extensions
 
 ---
 
-## 📊 Impact Metrics
+## 🚀 Installation
 
-<div align="center">
-
-| Metric | Before ExpenseFlow | After ExpenseFlow | Improvement |
-|--------|-------------------|-------------------|-------------|
-| ⏱️ **Processing Time** | 20 min/expense | 2 min/expense | **90% faster** |
-| 💰 **Error Rate** | 18% | 2% | **89% reduction** |
-| 😊 **Employee Satisfaction** | 45% | 92% | **+47 points** |
-| 📈 **Approval Speed** | 15 days | 24 hours | **93% faster** |
-| 💵 **Cost Savings** | - | $3K/employee/year | **ROI in 3 months** |
-
-</div>
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
+### 1. Clone the Repository
 ```bash
-Node.js 18+  |  Java 17+  |  MySQL 8.0+
+git clone https://github.com/WHITEDEATH-7/Expense-Management.git
+cd Expense-Management
 ```
 
-### 🏃‍♂️ Get Running in 5 Minutes
+### 2. Database Setup
 
-**1️⃣ Clone & Setup**
+Create a new MySQL database:
+```sql
+CREATE DATABASE expense_database;
+-- Demo credentials used in this project (for local development)
+-- Username: Spencer
+-- Password: mysql
+CREATE USER 'expense_user'@'localhost' IDENTIFIED BY 'mysql';
+GRANT ALL PRIVILEGES ON expense_database.* TO 'expense_user'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+### 3. Configure Application Properties
+
+The application now supports environment-based configuration with sensible defaults for local development. By default the project uses the demo credentials:
+
+- DB username: Spencer
+- DB password: mysql
+
+You can override these values using environment variables (recommended for production). Example `src/main/resources/application.yml` uses placeholders and will read:
+
+- `DB_URL` (default: jdbc:mysql://localhost:3306/expense_reimbursement...)
+- `DB_USERNAME` (default: root)
+- `DB_PASSWORD` (default: mysql)
+- `JWT_SECRET` (default: a local dev secret)
+- `FILE_UPLOAD_DIR` (default: ./uploads/receipts)
+
+For the frontend, a `.env` file is provided with Vite variables. See `.env` in the project root for `VITE_API_BASE_URL`, `VITE_DEMO_USERNAME`, and `VITE_DEMO_PASSWORD`.
+
+### 4. Install Dependencies
 ```bash
-git clone https://github.com/yourusername/expenseflow.git
-cd expenseflow
+mvn clean install
 ```
 
-**2️⃣ Backend Setup**
+---
+
+## ⚙️ Configuration
+
+### JWT Configuration
+
+The JWT secret key should be a strong, random string. Generate one using:
 ```bash
-cd backend
-./mvnw clean install
-# Configure database in application.properties
-./mvnw spring-boot:run
+openssl rand -base64 32
 ```
 
-**3️⃣ Frontend Setup**
+### File Upload Configuration
+
+By default, files are stored in `./uploads/receipts`. To change this:
+```yaml
+file:
+  upload-dir: /path/to/your/upload/directory
+```
+
+Ensure the directory exists and has proper write permissions.
+
+---
+
+## 🏃 Running the Application
+
+### Development Mode
 ```bash
-cd frontend
-npm install
-npm start
+mvn spring-boot:run
 ```
 
-**4️⃣ Open Browser**
-```
-http://localhost:3000
+### Production Mode
+```bash
+mvn clean package
+java -jar target/expense-reimbursement-system-1.0.0.jar
 ```
 
-**5️⃣ First Login**
-- Signup creates your company + admin account automatically
-- Start adding employees and testing workflows!
+The application will start on **http://localhost:8080**
 
 ---
 
-## 📸 Screenshots
+## 📚 API Documentation
 
-<div align="center">
+### Authentication Endpoints
 
-### 🎨 Modern Dashboard
-![Dashboard](https://via.placeholder.com/800x450/4A90E2/FFFFFF?text=Dashboard+View)
+#### Register New User & Company
+```http
+POST /api/auth/signup
+Content-Type: application/json
 
-### 📸 OCR Magic
-![OCR Scanning](https://via.placeholder.com/800x450/6DB33F/FFFFFF?text=OCR+Receipt+Scan)
+{
+  "username": "john.doe",
+  "email": "john@example.com",
+  "password": "securePassword123",
+  "fullName": "John Doe",
+  "role": "EMPLOYEE",
+  "companyName": "Acme Corp",
+  "country": "USA",
+  "currency": "USD"
+}
+```
 
-### ✅ Approval Workflow
-![Approval Flow](https://via.placeholder.com/800x450/FF6B6B/FFFFFF?text=Smart+Approvals)
+#### Login
+```http
+POST /api/auth/signin
+Content-Type: application/json
 
-</div>
+{
+  "username": "john.doe",
+  "password": "securePassword123"
+}
+
+Response:
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "type": "Bearer",
+  "username": "john.doe",
+  "role": "EMPLOYEE"
+}
+```
+
+### User Management Endpoints
+
+| Method | Endpoint | Description | Required Role |
+|--------|----------|-------------|---------------|
+| GET | `/api/users/company/{companyId}` | Get all users in a company | ADMIN, MANAGER |
+| GET | `/api/users/company/{companyId}/role/{role}` | Get users by role | ADMIN, MANAGER |
+| GET | `/api/users/manager/{managerId}/subordinates` | Get manager's subordinates | MANAGER |
+| GET | `/api/users/{userId}` | Get user by ID | ALL |
+| POST | `/api/users` | Create new user | ADMIN |
+| PUT | `/api/users/{userId}` | Update user | ADMIN, SELF |
+| DELETE | `/api/users/{userId}` | Delete user | ADMIN |
+
+### Expense Management Endpoints
+
+| Method | Endpoint | Description | Required Role |
+|--------|----------|-------------|---------------|
+| POST | `/api/expenses` | Create new expense | EMPLOYEE, MANAGER |
+| GET | `/api/expenses/employee/{employeeId}` | Get expenses by employee | EMPLOYEE, MANAGER |
+| GET | `/api/expenses/company/{companyId}` | Get all company expenses | ADMIN, MANAGER |
+| GET | `/api/expenses/{expenseId}` | Get expense details | ALL |
+| GET | `/api/expenses/approver/{approverId}/pending` | Get pending approvals | MANAGER, ADMIN |
+
+### Approval Endpoints
+
+| Method | Endpoint | Description | Required Role |
+|--------|----------|-------------|---------------|
+| POST | `/api/approvals/process` | Approve/reject expense | MANAGER, ADMIN |
+| GET | `/api/approvals/approver/{approverId}/pending` | Get pending approvals | MANAGER, ADMIN |
+| GET | `/api/approvals/expense/{expenseId}` | Get approval history | ALL |
+
+### Approval Rules Endpoints
+
+| Method | Endpoint | Description | Required Role |
+|--------|----------|-------------|---------------|
+| GET | `/api/approval-rules/company/{companyId}` | Get company approval rules | ADMIN |
+| POST | `/api/approval-rules` | Create approval rule | ADMIN |
+| PUT | `/api/approval-rules/{ruleId}` | Update approval rule | ADMIN |
+| DELETE | `/api/approval-rules/{ruleId}` | Delete approval rule | ADMIN |
+
+### File Upload Endpoints
+
+| Method | Endpoint | Description | Required Role |
+|--------|----------|-------------|---------------|
+| POST | `/api/files/upload` | Upload receipt file | EMPLOYEE, MANAGER |
+| GET | `/api/files/download/{fileName}` | Download file | ALL |
+| GET | `/api/files/expense/{expenseId}` | Get expense receipts | ALL |
+| DELETE | `/api/files/{receiptId}` | Delete receipt | EMPLOYEE, ADMIN |
+
+### API Response Format
+
+#### Success Response
+```json
+{
+  "data": {
+    "id": 1,
+    "amount": 150.00,
+    "status": "PENDING"
+  },
+  "message": "Success"
+}
+```
+
+#### Error Response
+```json
+{
+  "error": "Invalid credentials",
+  "status": 401,
+  "timestamp": "2025-10-04T10:30:00"
+}
+```
 
 ---
 
-## 🧠 Smart Workflow Examples
+## 🔒 Security
 
-### Example 1: Small Purchase ($200)
-```
-Employee → Manager (Auto-approve if < $500)
-Result: ✅ Approved in 2 hours
-```
+### Authentication Flow
+1. User submits credentials to `/api/auth/signin`
+2. System validates credentials against database
+3. JWT token is generated and returned
+4. Client includes token in Authorization header: `Bearer {token}`
+5. Each request is validated using JWT filter
 
-### Example 2: Medium Purchase ($3,000)
-```
-Employee → Manager → Finance Team (60% rule)
-Result: ✅ Approved in 12 hours
-```
+### Security Features
+- **Password Encryption**: BCrypt with salt rounds
+- **JWT Tokens**: Stateless authentication with configurable expiration
+- **Role-Based Access Control**: Method-level security with `@PreAuthorize`
+- **CORS Configuration**: Configurable cross-origin resource sharing
+- **SQL Injection Protection**: Parameterized queries via JPA
 
-### Example 3: Large Purchase ($15,000)
-```
-Employee → Manager → Finance (60%) → Director → CFO
-OR CFO approves directly → Skip all steps
-Result: ✅ Approved in 24 hours
-```
-
-### Example 4: International Expense (€500)
-```
-Employee submits €500 → Auto-converts to $545 (company USD)
-Manager sees both: €500 (original) & $545 (converted)
-Approval rule triggers: Manager + Finance
-Result: ✅ Approved with full audit trail
-```
+### Security Headers
+All API responses include security headers:
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `X-XSS-Protection: 1; mode=block`
 
 ---
 
-## 🎯 Use Cases
+## 🧪 Testing
 
-### 🏢 For Enterprises
-- **500+ employees** across multiple departments
-- Complex approval hierarchies
-- Multi-country operations
-- Strict compliance requirements
+### Test Credentials
 
-### 🚀 For Startups
-- **Fast-growing teams** (10-100 employees)
-- Need flexibility without bureaucracy
-- Remote-first culture
-- Budget-conscious
+Pre-configured test accounts:
 
-### 🏥 For Healthcare
-- **Grant-funded** research expenses
-- Multiple funding source tracking
-- Detailed audit trails for compliance
+| Role | Username | Password | Company |
+|------|----------|----------|---------|
+| Admin | `admin1` | `password123` | TechCorp |
+| Manager | `manager1` | `password123` | TechCorp |
+| Employee | `employee1` | `password123` | TechCorp |
 
-### 🎓 For Education
-- **Faculty & staff** reimbursements
-- Department budget management
-- Student organization expenses
-
----
-
-## 💻 Code Highlights
-
-### 🎨 Clean Architecture
-
-**Backend: Layered Design**
-```java
-📦 com.expenseflow
- ├── 🎯 controller/          # REST API endpoints
- ├── 💼 service/             # Business logic
- ├── 🗄️ repository/          # Data access layer
- ├── 📊 entity/              # JPA entities
- ├── 🔒 security/            # JWT & authentication
- ├── 📧 notification/        # Email service
- └── 🔧 config/              # Spring configuration
-```
-
-**Frontend: Component-Based**
-```
-📦 src/
- ├── 🧩 components/          # Reusable UI components
- │   ├── Dashboard/
- │   ├── ExpenseForm/
- │   ├── ApprovalQueue/
- │   └── OCRScanner/
- ├── 📄 pages/               # Route pages
- ├── 🔄 redux/               # State management
- ├── 🔌 api/                 # API client
- ├── 🛡️ utils/               # Helper functions
- └── 🎨 styles/              # Global styles
-```
-
-### 🔐 Security Features
-
-```typescript
-// JWT Token Management
-- Access Token: 15 min expiry
-- Refresh Token: 7 days
-- Auto-refresh mechanism
-- Secure HttpOnly cookies
-```
-
-```java
-// Spring Security Config
-- BCrypt password hashing (10 rounds)
-- CORS configuration for frontend
-- Role-based authorization (@PreAuthorize)
-- XSS protection
-- CSRF tokens
-```
-
-### 📊 Database Schema (11 Tables)
-
-```
-companies → users → expenses → expense_approvals
-     ↓         ↓         ↓              ↓
-  (1:N)     (1:N)     (1:N)          (N:1)
-     
-approval_rules → approval_rule_approvers
-       ↓                    ↓
-    (1:N)                (N:1)
-
-+ expense_line_items, expense_comments, 
-  audit_logs, notifications
-```
-
-### 🧪 Testing Coverage
+### Running Tests
 
 ```bash
-✅ Unit Tests:        120+ tests
-✅ Integration Tests:  45+ tests
-✅ API Tests:          30+ endpoints
-✅ E2E Tests:          15+ user flows
-📊 Coverage:           85%+
+# Run all tests
+mvn test
+
+# Run specific test class
+mvn test -Dtest=UserServiceTest
+
+# Run with coverage
+mvn test jacoco:report
+```
+
+### Manual Testing with cURL
+
+```bash
+# Login
+curl -X POST http://localhost:8080/api/auth/signin \
+  -H "Content-Type: application/json" \
+  -d '{"username":"employee1","password":"password123"}'
+
+# Create Expense (replace {TOKEN} with actual token)
+curl -X POST http://localhost:8080/api/expenses \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {TOKEN}" \
+  -d '{
+    "amount": 150.00,
+    "category": "TRAVEL",
+    "description": "Client meeting taxi",
+    "expenseDate": "2025-10-04"
+  }'
 ```
 
 ---
 
-## 🏆 Hackathon Categories
+## 🌐 Production Deployment
 
-### ✨ Best Use of Technology
-- **AI/ML**: OCR with Tesseract.js for intelligent data extraction
-- **Cloud APIs**: Real-time currency conversion & country data
-- **Modern Stack**: React 18, Spring Boot 3.x, TypeScript
+### Pre-Production Checklist
 
-### 💼 Best Enterprise Solution
-- Solves real business problem affecting millions
-- Scalable architecture (10 to 10,000+ employees)
-- Production-ready with security best practices
+- [ ] Change JWT secret to a strong, random value
+- [ ] Update CORS configuration to allow only trusted origins
+- [ ] Configure production database with connection pooling
+- [ ] Set up HTTPS/TLS certificates
+- [ ] Implement rate limiting
+- [ ] Configure logging levels (INFO or WARN)
+- [ ] Set up database backups
+- [ ] Implement monitoring and alerting
+- [ ] Use environment variables for sensitive data
+- [ ] Set up cloud storage for file uploads (AWS S3, Azure Blob)
 
-### 🎨 Best UI/UX
-- Mobile-first responsive design
-- Intuitive workflows (< 3 clicks to submit)
-- Real-time feedback & notifications
-- Accessible (WCAG 2.1 compliant)
+### Environment Variables
 
-### 🚀 Most Innovative
-- Hybrid approval rules (industry first)
-- Dynamic workflow adaptation
-- Client-side OCR (privacy-friendly)
-- Smart amount-based routing
-
----
-
-## 📈 Business Model
-
-### 💰 Pricing Strategy
-
-**Freemium Model:**
-- ✅ **Free Tier**: Up to 10 users, 50 expenses/month
-- 💼 **Professional**: $5/user/month, unlimited expenses
-- 🏢 **Enterprise**: Custom pricing, dedicated support
-
-**ROI Calculator:**
-```
-Company with 100 employees:
-- Manual processing cost: $3,000/employee/year = $300,000
-- ExpenseFlow cost: $5/user/month × 12 = $6,000/year
-- Net savings: $294,000/year
-- ROI: 4,900% 🚀
+```bash
+export DB_URL=jdbc:mysql://prod-db:3306/expense_database
+export DB_USERNAME=Spencer
+export DB_PASSWORD=mysql
+export JWT_SECRET=C1E67BF842C9AE41916D57FB7CFCC
+export FILE_UPLOAD_DIR=/var/app/uploads
 ```
 
----
+### Docker Deployment
 
-## 🗺️ Roadmap
+```dockerfile
+FROM openjdk:17-jdk-slim
+VOLUME /tmp
+COPY target/expense-reimbursement-system-1.0.0.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+```
 
-### ✅ Phase 1 (Completed) - Core MVP
-- User authentication & management
-- Basic expense submission
-- Sequential approval workflow
-- Multi-currency support
-
-### 🔄 Phase 2 (Current) - Advanced Features
-- OCR integration
-- Percentage & hybrid approval rules
-- Email notifications
-- Mobile responsive design
-
-### 🔮 Phase 3 (Next 3 months)
-- Mobile native apps (iOS/Android)
-- Direct bank integration for payouts
-- Advanced analytics with AI insights
-- Integration with QuickBooks, Xero
-
-### 🚀 Phase 4 (Future)
-- Mileage tracking with GPS
-- Credit card feed integration
-- Multi-language support (10+ languages)
-- Blockchain-based audit trails
-
----
-
-## 👥 Team
-
-<div align="center">
-
-| Role | Name | LinkedIn | GitHub |
-|------|------|----------|--------|
-| 👨‍💻 **Full Stack Developer** | Your Name | [LinkedIn](#) | [GitHub](#) |
-| 🎨 **UI/UX Designer** | Team Member 2 | [LinkedIn](#) | [GitHub](#) |
-| 🔐 **Backend Engineer** | Team Member 3 | [LinkedIn](#) | [GitHub](#) |
-| 📊 **Data Analyst** | Team Member 4 | [LinkedIn](#) | [GitHub](#) |
-
-</div>
+```bash
+docker build -t expense-reimbursement-system .
+docker run -p 8080:8080 expense-reimbursement-system
+```
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how:
+Contributions are welcome! Please follow these steps:
 
-1. 🍴 Fork the repository
-2. 🌿 Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. 📤 Push to branch (`git push origin feature/AmazingFeature`)
-5. 🎉 Open Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+Please ensure your code follows the project's coding standards and includes appropriate tests.
 
 ---
 
-## 📜 License
+## 📝 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📧 Contact
+
+For questions or support, please contact:
+- **Email**: support@expensesystem.com
+- **Issues**: [GitHub Issues](https://github.com/WHITEDEATH-7/Expense-Management/issues)
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **Tesseract.js** - Powerful OCR engine
-- **Spring Boot** - Robust backend framework
-- **React Community** - Amazing ecosystem
-- **Exchange Rate API** - Reliable currency data
-- **REST Countries** - Comprehensive country data
-- **Material-UI** - Beautiful component library
+- Spring Boot team for the excellent framework
+- All contributors who have helped improve this project
+- Open source community for inspiration and support
 
 ---
 
-## 📞 Contact & Links
-
-<div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-ExpenseFlow-black?style=for-the-badge&logo=github)](https://github.com/yourusername/expenseflow)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/yourprofile)
-[![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](mailto:your.email@example.com)
-[![Website](https://img.shields.io/badge/Website-Visit-green?style=for-the-badge&logo=google-chrome)](https://expenseflow.dev)
-
----
-
-### 🌟 If you like this project, please give it a star!
-
-**Made with ❤️ for the [Hackathon Name] Hackathon**
-
-</div>
-
----
-
-## 🎯 Judging Criteria Alignment
-
-### Innovation (25 points)
-✅ First-of-its-kind hybrid approval workflows  
-✅ Client-side OCR for privacy & speed  
-✅ Dynamic rule adaptation based on expense context  
-
-### Technical Complexity (25 points)
-✅ Full-stack application with modern architecture  
-✅ Multi-currency real-time conversion  
-✅ Complex approval state machine  
-✅ JWT security & role-based access  
-
-### Practicality & Impact (25 points)
-✅ Solves $300K+ problem per 100 employees  
-✅ 90% faster processing time  
-✅ Ready for production deployment  
-✅ Scalable to thousands of users  
-
-### Presentation (15 points)
-✅ Clean, intuitive UI/UX  
-✅ Live demo with real workflows  
-✅ Comprehensive documentation  
-✅ Professional pitch deck  
-
-### Code Quality (10 points)
-✅ Clean architecture & best practices  
-✅ 85%+ test coverage  
-✅ Well-documented codebase  
-✅ Git version control with meaningful commits  
-
----
-
-## 💡 Pro Tips for Judges
-
-**Try These Scenarios:**
-
-1. **The OCR Magic** 📸
-   - Upload a receipt → Watch auto-fill in 5 seconds
-   - Try different languages & formats
-
-2. **The Approval Symphony** 🎵
-   - Submit $200 expense → Manager only
-   - Submit $5,000 expense → Multi-level kicks in
-   - Submit $20,000 → CFO override tested
-
-3. **The Currency Wizard** 🌍
-   - Submit expense in EUR
-   - Watch real-time conversion to company USD
-   - See dual currency display
-
-4. **The Manager Dashboard** 👔
-   - View pending queue
-   - Approve with one click
-   - See team analytics
-
-5. **The Mobile Experience** 📱
-   - Resize browser to mobile
-   - Submit expense on-the-go
-   - Full functionality maintained
-
----
-
-<div align="center">
-
-## 🚀 **Let's revolutionize expense management together!**
-
-### **ExpenseFlow** - *From Receipt to Reimbursement in 2 Minutes*
-
-**[⭐ Star this repo](https://github.com/yourusername/expenseflow)** • **[📺 Watch Demo](#)** • **[📧 Contact Us](#)**
-
-</div>
+**Made with ❤️ using Spring Boot**
