@@ -242,16 +242,18 @@ http://localhost:3000
 
 ## 📸 Screenshots
 
+
 <div align="center">
 
-### 🎨 Modern Dashboard
-![Dashboard](https://ibb.co/CFfdJ6b)
+### 🎨 Dashboard Overview
+![Dashboard](/assets/dashboard.jpeg)
 
-### 📸 OCR Magic
-![OCR Scanning](https://ibb.co/7txTrmn5)
+### 📸 Submit New Expense (with OCR)
+![Submit Expense](/assets/submit-expense.jpeg)
 
-### ✅ Approval Workflow
-![Approval Flow](https://ibb.co/FqYmxHLL)
+### ✅ Manager Approval Workflow
+![Approvals](/assets/approvals.jpeg)
+
 
 </div>
 
