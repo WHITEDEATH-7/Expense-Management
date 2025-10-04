@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 18% 97%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    --primary: 238 65% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 238 65% 88%;
+    --primary-glow: 238 80% 70%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 15% 20%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 238 60% 96%;
+    --accent-foreground: 238 65% 35%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 50% 95%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 90% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 80% 96%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 238 65% 58%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 15% 20%;
+    --sidebar-primary: 238 65% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 15% 20%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 238 65% 58%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(238 65% 58%), hsl(238 80% 70%));
+    --gradient-card: linear-gradient(to bottom, hsl(0 0% 100%), hsl(220 14% 98%));
+    --shadow-card: 0 2px 8px -2px hsl(220 15% 15% / 0.08);
+    --shadow-lg: 0 10px 30px -10px hsl(220 15% 15% / 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 220 10% 92%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 220 10% 92%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 220 10% 92%;
+
+    --primary: 238 65% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 238 50% 20%;
+    --primary-glow: 238 80% 70%;
+
+    --secondary: 220 15% 16%;
+    --secondary-foreground: 220 10% 92%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 238 40% 18%;
+    --accent-foreground: 238 70% 75%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 50% 15%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 60% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 60% 15%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 238 65% 58%;
+
+    --sidebar-background: 220 18% 10%;
+    --sidebar-foreground: 220 10% 92%;
+    --sidebar-primary: 238 65% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 220 10% 92%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 238 65% 58%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(238 65% 58%), hsl(238 80% 70%));
+    --gradient-card: linear-gradient(to bottom, hsl(220 18% 10%), hsl(220 16% 12%));
+    --shadow-card: 0 2px 8px -2px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
