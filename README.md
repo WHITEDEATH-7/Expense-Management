@@ -210,7 +210,7 @@ Node.js 18+  |  Java 17+  |  MySQL 8.0+
 
 **1️⃣ Clone & Setup**
 ```bash
-git clone https://github.com/
+git clone https://github.com/......
 cd expenseflow
 ```
 
@@ -226,7 +226,7 @@ cd backend
 ```bash
 cd frontend
 npm install
-npm start
+npm run dev
 ```
 
 **4️⃣ Open Browser**
@@ -245,13 +245,13 @@ http://localhost:3000
 <div align="center">
 
 ### 🎨 Modern Dashboard
-![Dashboard](https://via.placeholder.com/800x450/4A90E2/FFFFFF?text=Dashboard+View)
+![Dashboard](https://ibb.co/CFfdJ6b)
 
 ### 📸 OCR Magic
-![OCR Scanning](https://via.placeholder.com/800x450/6DB33F/FFFFFF?text=OCR+Receipt+Scan)
+![OCR Scanning](https://ibb.co/7txTrmn5)
 
 ### ✅ Approval Workflow
-![Approval Flow](https://via.placeholder.com/800x450/FF6B6B/FFFFFF?text=Smart+Approvals)
+![Approval Flow](https://ibb.co/FqYmxHLL)
 
 </div>
 
@@ -471,10 +471,10 @@ Company with 100 employees:
 
 | Role | Name | LinkedIn | GitHub |
 |------|------|----------|--------|
-| 👨‍💻 **Full Stack Developer** | Your Name | [LinkedIn](#) | [GitHub](#) |
-| 🎨 **UI/UX Designer** | Team Member 2 | [LinkedIn](#) | [GitHub](#) |
-| 🔐 **Backend Engineer** | Team Member 3 | [LinkedIn](#) | [GitHub](#) |
-| 📊 **Data Analyst** | Team Member 4 | [LinkedIn](#) | [GitHub](#) |
+| 👨‍💻 **Full Stack Developer** | Ayush Prajapati | [LinkedIn](#) | [GitHub](#) |
+| 🎨 **UI/UX Designer** |  Kishan Rabadiya | [LinkedIn](#) | [GitHub](#) |
+| 🔐 **Backend Engineer** | Tushar Jadav | [LinkedIn](#) | [GitHub](#) |
+
 
 </div>
 
@@ -522,7 +522,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ### 🌟 If you like this project, please give it a star!
 
-**Made with ❤️ for the [Hackathon Name] Hackathon**
+**Made with ❤️ for the Odoo Hackathon**
 
 </div>
 
