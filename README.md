@@ -390,19 +390,7 @@ export JWT_SECRET=C1E67BF842C9AE41916D57FB7CFCC
 export FILE_UPLOAD_DIR=/var/app/uploads
 ```
 
-### Docker Deployment
 
-```dockerfile
-FROM openjdk:17-jdk-slim
-VOLUME /tmp
-COPY target/expense-reimbursement-system-1.0.0.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
-```
-
-```bash
-docker build -t expense-reimbursement-system .
-docker run -p 8080:8080 expense-reimbursement-system
-```
 
 ---
 
